@@ -52,7 +52,7 @@ public class SpringLenskartRestapiApplication implements CommandLineRunner {
 
         Frame frame = new Frame("marvel", "small", "gray", Gender.M, 1350, lens1, brand2, categories);
 
-        // frameService.addFrame(frame);
+        //frameService.addFrame(frame);
 
 
     }

@@ -17,8 +17,6 @@ import java.util.List;
 @RequestMapping("frame-response-api")
 public class FrameController {
     private IFrameService frameService;
-    private Logger logger = LoggerFactory.getLogger(FrameController.class);
-
     @Autowired
     public void setFrameService(IFrameService frameService) {
         this.frameService = frameService;
@@ -26,11 +24,10 @@ public class FrameController {
 
     @PostMapping("/frames")
     ResponseEntity<Frame> addFrame(@RequestBody Frame frame) {
-        logger.debug("inside add property method");
+
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "adding frame");
         Frame nframe = frameService.addFrame(frame);
-        logger.info(" add frame" + nframe);
         return ResponseEntity.status(HttpStatus.CREATED).body(nframe);
     }
 
@@ -62,11 +59,11 @@ public class FrameController {
 
     @GetMapping("/frames/id/{frameid}")
     public ResponseEntity<Frame> getById(@PathVariable("frameid") int frameId) {
-        logger.debug("inside id");
+
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting by id");
         Frame frame = frameService.getById(frameId);
-        logger.info("got one " + frame);
+       
         return ResponseEntity.ok().headers(headers).body(frame);
     }
 

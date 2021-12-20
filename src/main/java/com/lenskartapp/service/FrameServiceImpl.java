@@ -19,7 +19,6 @@ import java.util.Locale;
 
 @Service
 public class FrameServiceImpl implements IFrameService {
-    private Logger logger = LoggerFactory.getLogger(FrameServiceImpl.class);
 
     IFrameRepository frameRepository;
 
