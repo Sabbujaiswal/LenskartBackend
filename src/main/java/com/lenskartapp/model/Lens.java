@@ -19,6 +19,11 @@ public class Lens {
     @Column(name = "lenspower", length = 20)
     private double lensPower;
 
+    /**
+     *
+     * @param brand
+     * @param lensPower
+     */
     public Lens(String brand, double lensPower) {
         this.brand = brand;
         this.lensPower = lensPower;

@@ -1,6 +1,5 @@
 package com.lenskartapp.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,22 +25,24 @@ public class Frame {
     private String color;
     @Column(length = 20)
     @Enumerated(EnumType.STRING)
-    private Gender gender;
+    private ShopBy gender;
     @Column(length = 10)
     private double price;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "lensid")
     private Lens lens;
-
-    @ManyToOne
+    private double rating;
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "brandid")
     private Brand brand;
-
-    @ManyToMany(fetch = FetchType.EAGER)
+    @Column(name="frameimg")
+    private String frameImg;
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(name = "frame_category", joinColumns = @JoinColumn(name = "frameid"), inverseJoinColumns = @JoinColumn(name = "categoryid"))
     private Set<Category> categories;
 
-    public Frame(String name, String frameSize, String color, Gender gender, double price, Lens lens, Brand brand, Set<Category> categories) {
+
+    public Frame(String name, String frameSize, String color, ShopBy gender, double price, Lens lens, Brand brand, String frameImg, Set<Category> categories,double rating ) {
         this.name = name;
         this.frameSize = frameSize;
         this.color = color;
@@ -50,6 +51,7 @@ public class Frame {
         this.lens = lens;
         this.brand = brand;
         this.categories = categories;
+        this.rating = rating;
 
     }
 
@@ -59,10 +61,12 @@ public class Frame {
                 "name='" + name + '\'' +
                 ", frameSize='" + frameSize + '\'' +
                 ", color='" + color + '\'' +
-                ", gender='" + gender + '\'' +
+                ", gender=" + gender +
                 ", price=" + price +
                 ", lens=" + lens +
+                ", rating=" + rating +
                 ", brand=" + brand +
+                ", frameImg='" + frameImg + '\'' +
                 ", categories=" + categories +
                 '}';
     }

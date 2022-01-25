@@ -44,15 +44,24 @@ public class SpringLenskartRestapiApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Brand brand2 = new Brand(Shape.ROUND, Type.BLUERAY, "ray-ban");
-        Category category3 = new Category("sportswear", "plastic");
-        Set<Category> categories = new HashSet<>(Arrays.asList(category3));
-        Lens lens1 = new Lens("acuve", 1.2);
+//        Brand brand2 = new Brand(Shape.ROUND, Type.BLUERAY, "ray-ban");
+//        Category category3 = new Category("Reading", "Plastic");
+//        Set<Category> categories = new HashSet<>(Arrays.asList(category3));
+//        Lens lens1 = new Lens("John Jacobs", 0.75);
+//
+//        Frame frame = new Frame("Float Pop", "medium", "blue", ShopBy.MEN, 1350, lens1, brand2,"assets/reading/blueray", categories,5);
 
 
-        Frame frame = new Frame("marvel", "small", "gray", Gender.M, 1350, lens1, brand2, categories);
 
-        //frameService.addFrame(frame);
+        Brand brand1 = new Brand(Shape.ROUND, Type.AVITORSUNGLASSES, "OAKLEY");
+        Category category2 = new Category("Sun Glasses", "Fiber");
+        Set<Category> categories1 = new HashSet<>(Arrays.asList(category2));
+        Lens lens2 = new Lens("Oakley", 0.5);
+
+        Frame frame = new Frame("Pilat Style", "Medium", "gray", ShopBy.MEN, 1200, lens2, brand1,"assets/sunglass/oakley", categories1,5.0);
+
+
+        frameService.addFrame(frame);
 
 
     }

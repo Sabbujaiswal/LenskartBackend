@@ -29,6 +29,12 @@ public class Brand {
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "brand")
     Set<Frame> frames;
 
+    /**
+     *
+     * @param shape
+     * @param type
+     * @param brandName
+     */
     public Brand(Shape shape, Type type, String brandName) {
         this.shape = shape;
         this.type = type;

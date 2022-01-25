@@ -17,27 +17,46 @@ public class BrandServiceImpl implements IBrandService {
     public void setBrandRepository(IBrandRepository brandRepository) {
         this.brandRepository = brandRepository;
     }
-
+    /**
+     *
+     * @param brand
+     * @return a newly added brand
+     */
     @Override
     public Brand addBrand(Brand brand) {
         return brandRepository.save(brand);
     }
-
+    /**
+     *
+     * @param brand
+     */
     @Override
     public void updateBrand(Brand brand) {
         brandRepository.save(brand);
     }
 
+    /**
+     *
+     * @param brandId
+     * @throws BrandNotFoundException
+     */
     @Override
     public void deleteBrand(int brandId) {
         brandRepository.deleteById(brandId);
     }
-
+    /**
+     *
+     * @param brandId
+     * @return a brand
+     */
     @Override
     public Brand getById(int brandId) {
         return brandRepository.findById(brandId).orElseThrow(() -> new BrandNotFoundException("This brand not found"));
     }
-
+    /**
+     *
+     * @return list of brands
+     */
     @Override
     public List<Brand> getAll() {
         return brandRepository.findAll();

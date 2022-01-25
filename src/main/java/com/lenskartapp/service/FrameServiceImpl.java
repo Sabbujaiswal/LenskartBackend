@@ -2,20 +2,15 @@ package com.lenskartapp.service;
 
 import com.lenskartapp.exceptions.FrameNotFoundException;
 import com.lenskartapp.model.Frame;
-import com.lenskartapp.model.Gender;
+import com.lenskartapp.model.ShopBy;
 import com.lenskartapp.model.Shape;
 import com.lenskartapp.model.Type;
 import com.lenskartapp.repository.IFrameRepository;
-import net.bytebuddy.TypeCache;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.net.Proxy;
 import java.util.List;
-import java.util.Locale;
 
 @Service
 public class FrameServiceImpl implements IFrameService {
@@ -27,27 +22,51 @@ public class FrameServiceImpl implements IFrameService {
         this.frameRepository = frameRepository;
     }
 
+    /**
+     *
+     * @param frame
+     * @return new Frame Object
+     */
     @Override
     public Frame addFrame(Frame frame) {
         return frameRepository.save(frame);
     }
 
+    /**
+     *
+     * @param frame
+     */
     @Override
     public void updateFrame(Frame frame) {
         frameRepository.save(frame);
 
     }
 
+    /**
+     *
+     * @param frameId
+     */
     @Override
     public void deleteFrame(int frameId) {
         frameRepository.deleteById(frameId);
     }
 
+    /**
+     *
+     * @return all frames that are available in database
+     */
     @Override
     public List<Frame> getAll() {
 
         return frameRepository.findAll();
     }
+
+    /**
+     *
+     * @param frameId
+     * @return a Frame object
+     * @throws FrameNotFoundException if no Frame object found for the given info
+     */
 
     @Override
     public Frame getById(int frameId) throws FrameNotFoundException {
@@ -57,6 +76,12 @@ public class FrameServiceImpl implements IFrameService {
 
     }
 
+    /**
+     *
+     * @param price
+     * @return a list of Frame Objects
+     * @throws FrameNotFoundException if no Frame object found for the given info
+     */
     @Override
     public List<Frame> getByLessPrice(double price) throws FrameNotFoundException {
         Sort sort = Sort.by("price");
@@ -67,6 +92,13 @@ public class FrameServiceImpl implements IFrameService {
         return frames;
     }
 
+    /**
+     *
+     * @param frameSize
+     * @param type
+     * @return a list of Frame Objects
+     * @throws FrameNotFoundException if no Frame object found for the given info
+     */
     @Override
     public List<Frame> getByFrameSizeAndType(String frameSize, String type) throws FrameNotFoundException {
         Sort sort = Sort.by("name");
@@ -77,6 +109,12 @@ public class FrameServiceImpl implements IFrameService {
         return frames;
     }
 
+    /**
+     *
+     * @param brand
+     * @return
+     * @throws FrameNotFoundException
+     */
     @Override
     public List<Frame> getByFrameBrand(String brand) throws FrameNotFoundException {
         Sort sort = Sort.by("name");
@@ -87,26 +125,46 @@ public class FrameServiceImpl implements IFrameService {
         return frames;
     }
 
+    /**
+     *
+     * @param gender
+     * @param size
+     * @return
+     * @throws FrameNotFoundException
+     */
     @Override
     public List<Frame> getByGenderAndFrameSize(String gender, String size) throws FrameNotFoundException {
         Sort sort = Sort.by("name");
-        List<Frame> frames = frameRepository.getByGenderAndFrameSize(Gender.valueOf(gender.toUpperCase()), size.toLowerCase(), sort);
+        List<Frame> frames = frameRepository.getByGenderAndFrameSize(ShopBy.valueOf(gender.toUpperCase()), size.toLowerCase(), sort);
         if (frames.isEmpty()) {
             throw new FrameNotFoundException("Frame not found with this size and gender");
         }
         return frames;
     }
 
+    /**
+     *
+     * @param categoryName
+     * @param gender
+     * @return
+     * @throws FrameNotFoundException
+     */
     @Override
     public List<Frame> getByCategoryAndGender(String categoryName, String gender) throws FrameNotFoundException {
         Sort sort = Sort.by("name");
-        List<Frame> frames = frameRepository.findByCategoryAndGender(categoryName.toLowerCase(), Gender.valueOf(gender.toUpperCase()), sort);
+        List<Frame> frames = frameRepository.findByCategoryAndGender(categoryName.toLowerCase(), ShopBy.valueOf(gender.toUpperCase()), sort);
         if (frames.isEmpty()) {
             throw new FrameNotFoundException("Frame not found with this category and gender");
         }
         return frames;
     }
 
+    /**
+     *
+     * @param category
+     * @return
+     * @throws FrameNotFoundException
+     */
     @Override
     public List<Frame> getByCategory(String category) throws FrameNotFoundException {
         Sort sort = Sort.by("name");
@@ -117,6 +175,13 @@ public class FrameServiceImpl implements IFrameService {
         return frames;
     }
 
+    /**
+     *
+     * @param categoryName
+     * @param shape
+     * @return
+     * @throws FrameNotFoundException
+     */
     @Override
     public List<Frame> getByCategoryAndShape(String categoryName, String shape) throws FrameNotFoundException {
         Sort sort = Sort.by("name");
@@ -127,6 +192,12 @@ public class FrameServiceImpl implements IFrameService {
         return frames;
     }
 
+    /**
+     *
+     * @param lensBrand
+     * @return
+     * @throws FrameNotFoundException
+     */
     @Override
     public List<Frame> getByLensBrand(String lensBrand) throws FrameNotFoundException {
         Sort sort = Sort.by("name");
@@ -137,16 +208,30 @@ public class FrameServiceImpl implements IFrameService {
         return frames;
     }
 
+    /**
+     *
+     * @param name
+     * @param gender
+     * @param shape
+     * @return
+     * @throws FrameNotFoundException
+     */
     @Override
     public List<Frame> getByFrameNameAndGenderAndShape(String name, String gender, String shape) throws FrameNotFoundException {
         Sort sort = Sort.by("name");
-        List<Frame> frames = frameRepository.findByFrameNameAndGenderAndShape(name.toLowerCase(), Gender.valueOf(gender.toUpperCase()), Shape.valueOf(shape.toUpperCase()), sort);
+        List<Frame> frames = frameRepository.findByFrameNameAndGenderAndShape(name.toLowerCase(), ShopBy.valueOf(gender.toUpperCase()), Shape.valueOf(shape.toUpperCase()), sort);
         if (frames.isEmpty()) {
             throw new FrameNotFoundException("Frame not found with this name and shape and gender");
         }
         return frames;
     }
 
+    /**
+     *
+     * @param shape
+     * @return
+     * @throws FrameNotFoundException
+     */
     @Override
     public List<Frame> getByShape(String shape) throws FrameNotFoundException {
         Sort sort = Sort.by("name");
@@ -157,6 +242,13 @@ public class FrameServiceImpl implements IFrameService {
         return frames;
     }
 
+    /**
+     *
+     * @param category
+     * @param color
+     * @return
+     * @throws FrameNotFoundException
+     */
     @Override
     public List<Frame> getByCategoryAndColor(String category, String color) throws FrameNotFoundException {
 
@@ -168,6 +260,12 @@ public class FrameServiceImpl implements IFrameService {
         return frames;
     }
 
+    /**
+     *
+     * @param lenspower
+     * @return
+     * @throws FrameNotFoundException
+     */
     @Override
     public List<Frame> getByLensPower(double lenspower) throws FrameNotFoundException {
         Sort sort = Sort.by("name");
@@ -178,6 +276,13 @@ public class FrameServiceImpl implements IFrameService {
         return frames;
     }
 
+    /**
+     *
+     * @param size
+     * @param lensPower
+     * @return
+     * @throws FrameNotFoundException
+     */
     @Override
     public List<Frame> getByFrameSizeAndLensPower(String size, double lensPower) throws FrameNotFoundException {
         Sort sort = Sort.by("name");
@@ -188,6 +293,12 @@ public class FrameServiceImpl implements IFrameService {
         return frames;
     }
 
+    /**
+     *
+     * @param material
+     * @return
+     * @throws FrameNotFoundException
+     */
     @Override
     public List<Frame> getByMaterial(String material) throws FrameNotFoundException {
         Sort sort = Sort.by("name");
@@ -198,6 +309,13 @@ public class FrameServiceImpl implements IFrameService {
         return frames;
     }
 
+    /**
+     *
+     * @param color
+     * @param material
+     * @return
+     * @throws FrameNotFoundException
+     */
     @Override
     public List<Frame> getByColorAndMaterial(String color, String material) throws FrameNotFoundException {
         Sort sort = Sort.by("name");
@@ -208,6 +326,13 @@ public class FrameServiceImpl implements IFrameService {
         return frames;
     }
 
+    /**
+     *
+     * @param price
+     * @param brand
+     * @return
+     * @throws FrameNotFoundException
+     */
     @Override
     public List<Frame> getByPriceLessThanAndFrameBrand(double price, String brand) throws FrameNotFoundException {
         Sort sort = Sort.by("price").descending();
@@ -218,6 +343,14 @@ public class FrameServiceImpl implements IFrameService {
         return frames;
     }
 
+    /**
+     *
+     * @param color
+     * @param price
+     * @param lensPower
+     * @return
+     * @throws FrameNotFoundException
+     */
     @Override
     public List<Frame> getByColorPriceAndLensPower(String color, double price, String lensPower) throws FrameNotFoundException {
         Sort sort = Sort.by("price").descending();
@@ -228,6 +361,13 @@ public class FrameServiceImpl implements IFrameService {
         return frames;
     }
 
+    /**
+     *
+     * @param gender
+     * @param type
+     * @return
+     * @throws FrameNotFoundException
+     */
     @Override
     public List<Frame> getByGenderAndType(String gender, String type) throws FrameNotFoundException {
         Sort sort = Sort.by("name");
@@ -238,6 +378,13 @@ public class FrameServiceImpl implements IFrameService {
         return frames;
     }
 
+    /**
+     *
+     * @param size
+     * @param brand
+     * @return
+     * @throws FrameNotFoundException
+     */
     @Override
     public List<Frame> getByFrameSizeAndBrand(String size, String brand) throws FrameNotFoundException {
         Sort sort = Sort.by("name");
@@ -248,6 +395,13 @@ public class FrameServiceImpl implements IFrameService {
         return frames;
     }
 
+    /**
+     *
+     * @param lensBrand
+     * @param frameSize
+     * @return
+     * @throws FrameNotFoundException
+     */
     @Override
     public List<Frame> getByLensBrandAndFrameSize(String lensBrand, String frameSize) throws FrameNotFoundException {
         Sort sort = Sort.by("name");

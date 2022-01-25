@@ -25,6 +25,11 @@ public class Category {
     @ManyToMany(mappedBy = "categories")
     private Set<Frame> frames;
 
+    /**
+     *
+     * @param categoryName
+     * @param material
+     */
     public Category(String categoryName, String material) {
         this.categoryName = categoryName;
         this.material = material;

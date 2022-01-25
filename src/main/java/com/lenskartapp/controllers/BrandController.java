@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("brand-response-api")
+@RequestMapping("brand-api")
 public class BrandController {
     private Logger logger = LoggerFactory.getLogger(BrandController.class);
 
@@ -46,7 +46,7 @@ public class BrandController {
     }
 
     @DeleteMapping("/brands/id/{brandid}")
-    public ResponseEntity<String> deleteCategory(@PathVariable("brandid") int brandId) {
+    public ResponseEntity<String> deletBrand(@PathVariable("brandid") int brandId) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "updating brand");
         brandService.deleteBrand(brandId);

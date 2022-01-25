@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("category-response-api")
+@RequestMapping("category-api")
 public class CategoryController {
     private Logger logger = LoggerFactory.getLogger(CategoryController.class);
 
@@ -26,7 +26,7 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @PostMapping("/categories")
+    @PostMapping("/category")
     ResponseEntity<Category> addCategory(@RequestBody Category category) {
         logger.debug("inside add category method");
         HttpHeaders headers = new HttpHeaders();
@@ -36,7 +36,7 @@ public class CategoryController {
         return ResponseEntity.status(HttpStatus.CREATED).body(ncategory);
     }
 
-    @PutMapping("/categories")
+    @PutMapping("/category")
     ResponseEntity<Void> updateCategory(@RequestBody Category category) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "updating category");
@@ -44,7 +44,7 @@ public class CategoryController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).headers(headers).build();
     }
 
-    @DeleteMapping("/categories/id/{categoryid}")
+    @DeleteMapping("/category/id/{categoryid}")
     public ResponseEntity<String> deleteCategory(@PathVariable("categoryid") int categoryId) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "deleting category");
@@ -52,7 +52,7 @@ public class CategoryController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).headers(headers).body("deleted");
     }
 
-    @GetMapping("/categories")
+    @GetMapping("/category")
     ResponseEntity<List<Category>> getAll(Category category) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "All categories");
@@ -60,7 +60,7 @@ public class CategoryController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).headers(headers).body(caterories);
     }
 
-    @GetMapping("/categories/id/{categoryid}")
+    @GetMapping("/category/id/{categoryid}")
     public ResponseEntity<Category> getById(@PathVariable("categoryid") int categoryId) {
         logger.debug("inside id");
         HttpHeaders headers = new HttpHeaders();

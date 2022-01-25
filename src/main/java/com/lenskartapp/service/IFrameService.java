@@ -7,6 +7,7 @@ import org.springframework.data.domain.Sort;
 import java.util.List;
 
 public interface IFrameService {
+
     Frame addFrame(Frame frame);
 
     void updateFrame(Frame frame);
@@ -17,9 +18,12 @@ public interface IFrameService {
 
     Frame getById(int frameId) throws FrameNotFoundException;
 
+
     List<Frame> getByLessPrice(double price);
 
+
     List<Frame> getByFrameSizeAndType(String frameSize, String type) throws FrameNotFoundException;
+
 
     List<Frame> getByFrameBrand(String brand) throws FrameNotFoundException;
 

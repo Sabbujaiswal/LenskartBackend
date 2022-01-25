@@ -14,25 +14,29 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("frame-response-api")
+@RequestMapping("frame-api")
 public class FrameController {
+    private Logger logger = LoggerFactory.getLogger(BrandController.class);
+
     private IFrameService frameService;
     @Autowired
     public void setFrameService(IFrameService frameService) {
         this.frameService = frameService;
     }
 
-    @PostMapping("/frames")
+    @PostMapping("/frames/add-item")
     ResponseEntity<Frame> addFrame(@RequestBody Frame frame) {
-
+        logger.debug("inside add frame method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "adding frame");
         Frame nframe = frameService.addFrame(frame);
+        logger.info(" add brand" + nframe);
         return ResponseEntity.status(HttpStatus.CREATED).body(nframe);
     }
 
     @PutMapping("/frames")
     ResponseEntity<Void> updateFrame(@RequestBody Frame frame) {
+        logger.debug("inside update frame method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "updating frame");
         frameService.updateFrame(frame);
@@ -41,14 +45,17 @@ public class FrameController {
 
     @DeleteMapping("/frames/id/{frameid}")
     public ResponseEntity<String> deleteFrame(@PathVariable("frameid") int frameId) {
+        logger.debug("inside delete frame method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "updating frame");
         frameService.deleteFrame(frameId);
+
         return ResponseEntity.status(HttpStatus.ACCEPTED).headers(headers).body("deleted");
     }
 
     @GetMapping("/frames")
     public ResponseEntity<List<Frame>> getAll() {
+        logger.debug("inside get all frame method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting all frames");
         headers.add("info", "Frame details");
@@ -59,16 +66,17 @@ public class FrameController {
 
     @GetMapping("/frames/id/{frameid}")
     public ResponseEntity<Frame> getById(@PathVariable("frameid") int frameId) {
-
+        logger.debug("inside id");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting by id");
         Frame frame = frameService.getById(frameId);
-       
+        logger.info("got one " + frame);
         return ResponseEntity.ok().headers(headers).body(frame);
     }
 
     @GetMapping("/frames/price/{price}")
     public ResponseEntity<List<Frame>> getByLessPrice(@PathVariable("price") double price) {
+        logger.debug("inside get frame by price method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames based on price");
         headers.add("info", "Frame details");
@@ -76,8 +84,9 @@ public class FrameController {
         return ResponseEntity.ok().headers(headers).body(frames);
     }
 
-    @GetMapping("/frames/framesize/{size}/type/{type}")
+    @GetMapping("/frames/size/{size}/type/{type}")
     public ResponseEntity<List<Frame>> getByFrameSizeAndType(@PathVariable("size") String frameSize, @PathVariable("type") String type) {
+        logger.debug("inside get frame by size and type method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by frame size and type");
         headers.add("info", "Frame details");
@@ -85,8 +94,9 @@ public class FrameController {
         return ResponseEntity.ok().headers(headers).body(frames);
     }
 
-    @GetMapping("/frames/framebrand/{brand}")
+    @GetMapping("/frames/brand/{brand}")
     public ResponseEntity<List<Frame>> getByFrameBrand(@PathVariable("brand") String brand) {
+        logger.debug("inside get frame by frame brand method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by frame-brand");
         headers.add("info", "Frame details");
@@ -96,6 +106,7 @@ public class FrameController {
 
     @GetMapping("/frames/color/{color}/material/{material}")
     public ResponseEntity<List<Frame>> getByColorAndMaterial(@PathVariable("color") String color, @PathVariable("material") String material) {
+        logger.debug("inside get frame by color and material method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by color matterial");
         headers.add("info", "Frame details");
@@ -103,8 +114,9 @@ public class FrameController {
         return ResponseEntity.ok().headers(headers).body(frames);
     }
 
-    @GetMapping("/frames/price/{price}/framebrand/{brand}")
+    @GetMapping("/frames/price/{price}/brand/{brand}")
     public ResponseEntity<List<Frame>> getByPriceLessThanAndFrameBrand(@PathVariable("price") double price, @PathVariable("brand") String brand) {
+        logger.debug("inside get frame by price and frame-brand method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by price, frame-brand");
         headers.add("info", "Frame details");
@@ -114,6 +126,7 @@ public class FrameController {
 
     @GetMapping("/frames/color/{color}/price/{price}/lenspower/{lensPower}")
     public ResponseEntity<List<Frame>> getByColorPriceAndLensPower(@PathVariable("color") String color, @PathVariable("price") double price, @PathVariable("lensPower") String lensPower) {
+        logger.debug("inside get frame by color,price and lenspower method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by color,price,lenspoower");
         headers.add("info", "Frame details");
@@ -123,6 +136,7 @@ public class FrameController {
 
     @GetMapping("/frames/gender/{gender}/type/{type}")
     public ResponseEntity<List<Frame>> getByGenderAndType(@PathVariable("gender") String gender, @PathVariable("type") String type) {
+        logger.debug("inside get frame by gender and type method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by gender, type");
         headers.add("info", "Frame details");
@@ -130,8 +144,9 @@ public class FrameController {
         return ResponseEntity.ok().headers(headers).body(frames);
     }
 
-    @GetMapping("/frames/size/{size}/brand/{brand}")
+    @GetMapping("/frames/size/{size}/framebrand/{brand}")
     public ResponseEntity<List<Frame>> getByFrameSizeAndBrand(@PathVariable("size") String size, @PathVariable("brand") String brand) {
+        logger.debug("inside get frame by size and brand method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by frame size, brand");
         headers.add("info", "Frame details");
@@ -139,8 +154,9 @@ public class FrameController {
         return ResponseEntity.ok().headers(headers).body(frames);
     }
 
-    @GetMapping("/frames/lensbrand/{lensbrand}/framesize/{framesize}")
-    public ResponseEntity<List<Frame>> getByLensBrandAndFrameSize(@PathVariable("lensbrand") String lensBrand, @PathVariable("framesize") String frameSize) {
+    @GetMapping("/frames/lensbrand/{lensbrand}/size/{size}")
+    public ResponseEntity<List<Frame>> getByLensBrandAndFrameSize(@PathVariable("lensbrand") String lensBrand, @PathVariable("size") String frameSize) {
+        logger.debug("inside get frame by size and lens brand method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by lens-brand,frame-size");
         headers.add("info", "Frame details");
@@ -148,8 +164,9 @@ public class FrameController {
         return ResponseEntity.ok().headers(headers).body(frames);
     }
 
-    @GetMapping("/frames/lenspower/{lenspower}/framebrand/{framebrand}")
-    public ResponseEntity<List<Frame>> getByLensPowerAndFrameBrand(@PathVariable("lenspower") String lensPower, @PathVariable("framebrand") String frameBrand) {
+    @GetMapping("/frames/lenspower/{lenspower}/framebrand/{brand}")
+    public ResponseEntity<List<Frame>> getByLensPowerAndFrameBrand(@PathVariable("lenspower") String lensPower, @PathVariable("brand") String frameBrand) {
+        logger.debug("inside get frame by lens power and frame brand method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by lens power,frame-brand");
         headers.add("info", "Frame details");
@@ -159,6 +176,7 @@ public class FrameController {
 
     @GetMapping("/frames/type/{type}/price/{price}")
     public ResponseEntity<List<Frame>> getByTypeAndPriceLessThan(@PathVariable("type") String type, @PathVariable("price") double price) {
+        logger.debug("inside get frame by type and price method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by type,price");
         headers.add("info", "Frame details");
@@ -168,6 +186,7 @@ public class FrameController {
 
     @GetMapping("/frames/gender/{gender}/size/{size}")
     public ResponseEntity<List<Frame>> getByGenderAndFrameSize(@PathVariable("gender") String gender, @PathVariable("size") String size) {
+        logger.debug("inside get frame by frame size and gender method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by gender,size");
         headers.add("info", "Frame details");
@@ -175,8 +194,9 @@ public class FrameController {
         return ResponseEntity.ok().headers(headers).body(frames);
     }
 
-    @GetMapping("/frames/categories/{categoryname}/gender/{gender}")
-    public ResponseEntity<List<Frame>> getByCategoryAndGender(@PathVariable("categoryname") String categoryName, @PathVariable("gender") String gender) {
+    @GetMapping("/frames/category/{category}/gender/{gender}")
+    public ResponseEntity<List<Frame>> getByCategoryAndGender(@PathVariable("category") String categoryName, @PathVariable("gender") String gender) {
+        logger.debug("inside get frame by category and gender method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by category name, gender");
         headers.add("info", "Frame details");
@@ -184,8 +204,9 @@ public class FrameController {
         return ResponseEntity.ok().headers(headers).body(frames);
     }
 
-    @GetMapping("/frames/categories/{categoryname}")
-    public ResponseEntity<List<Frame>> getByCategory(@PathVariable("categoryname") String category) {
+    @GetMapping("/frames/category/{category}")
+    public ResponseEntity<List<Frame>> getByCategory(@PathVariable("category") String category) {
+        logger.debug("inside get frame by category ");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by category");
         headers.add("info", "Frame details");
@@ -193,8 +214,9 @@ public class FrameController {
         return ResponseEntity.ok().headers(headers).body(frames);
     }
 
-    @GetMapping("/frames/categories/{categoryname}/shape/{shape}")
-    public ResponseEntity<List<Frame>> getByCategoryAndShape(@PathVariable("categoryname") String categoryName, @PathVariable("shape") String shape) {
+    @GetMapping("/frames/category/{category}/shape/{shape}")
+    public ResponseEntity<List<Frame>> getByCategoryAndShape(@PathVariable("category") String categoryName, @PathVariable("shape") String shape) {
+        logger.debug("inside get frame by category and shape method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by category name, shape");
         headers.add("info", "Frame details");
@@ -202,7 +224,7 @@ public class FrameController {
         return ResponseEntity.ok().headers(headers).body(frames);
     }
 
-    @GetMapping("/frames/lensBrand/{lensbrand}")
+    @GetMapping("/frames/lensbrand/{lensbrand}")
     public ResponseEntity<List<Frame>> getByLensBrand(@PathVariable("lensbrand") String lensBrand) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by lensbrand");
@@ -213,6 +235,7 @@ public class FrameController {
 
     @GetMapping("/frames/name/{name}/gender/{gender}/shape/{shape}")
     public ResponseEntity<List<Frame>> getByFrameNameAndGenderAndShape(String name, String gender, String shape) {
+        logger.debug("inside get frame by name,shape and gender method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by name,gender and shpe");
         headers.add("info", "Frame details");
@@ -222,6 +245,7 @@ public class FrameController {
 
     @GetMapping("/frames/shape/{shape}")
     public ResponseEntity<List<Frame>> getByShape(@PathVariable("shape") String shape) {
+        logger.debug("inside get frame by shape method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by shape");
         headers.add("info", "Frame details");
@@ -229,8 +253,9 @@ public class FrameController {
         return ResponseEntity.ok().headers(headers).body(frames);
     }
 
-    @GetMapping("/frames/categories/{caterory}/color/{color}")
+    @GetMapping("/frames/category/{category}/color/{color}")
     public ResponseEntity<List<Frame>> getByCategoryAndColor(@PathVariable("category") String category, @PathVariable("color") String color) {
+        logger.debug("inside get frame by category and color method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by category,color");
         headers.add("info", "Frame details");
@@ -238,8 +263,9 @@ public class FrameController {
         return ResponseEntity.ok().headers(headers).body(frames);
     }
 
-    @GetMapping("/frames/lensPower/{lenspower}")
+    @GetMapping("/frames/lenspower/{lenspower}")
     public ResponseEntity<List<Frame>> getByLensPower(@PathVariable("lenspower") double lenspower) {
+        logger.debug("inside get frame by lenspower method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by lenspower");
         headers.add("info", "Frame details");
@@ -247,8 +273,9 @@ public class FrameController {
         return ResponseEntity.ok().headers(headers).body(frames);
     }
 
-    @GetMapping("/frames/size/{size}/lensPower/{lenspower}")
+    @GetMapping("/frames/size/{size}/lenspower/{lenspower}")
     public ResponseEntity<List<Frame>> getByFrameSizeAndLensPower(@PathVariable("size") String size, @PathVariable("lenspower") double lensPower) {
+        logger.debug("inside get frame by size and lenspower method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by double,lenspower");
         headers.add("info", "Frame details");
@@ -258,6 +285,7 @@ public class FrameController {
 
     @GetMapping("/frames/material/{material}")
     public ResponseEntity<List<Frame>> getByMaterial(@PathVariable("material") String material) {
+        logger.debug("inside get frame by material method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by material");
         headers.add("info", "Frame details");
@@ -267,6 +295,7 @@ public class FrameController {
 
     @GetMapping("/frames/shape/{shape}/price/{price}/type/{type}")
     public ResponseEntity<List<Frame>> getByShapePriceType(@PathVariable("shape") String shape, @PathVariable("price") double price, @PathVariable("type") String type) {
+        logger.debug("inside get frame by shape,price and type method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames by shpe,price,type");
         headers.add("info", "Frame details");
@@ -274,8 +303,9 @@ public class FrameController {
         return ResponseEntity.ok().headers(headers).body(frames);
     }
 
-    @GetMapping("/frames/shape/{shape}/lensPower/{lenspower}")
+    @GetMapping("/frames/shape/{shape}/lenspower/{lenspower}")
     public ResponseEntity<List<Frame>> getByShapeAndLensPower(@PathVariable("shape") String shape, @PathVariable("lenspower") String lensPower) {
+        logger.debug("inside get frame by shape and lenspower method");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting the frames shape,lenspower");
         headers.add("info", "Frame details");
