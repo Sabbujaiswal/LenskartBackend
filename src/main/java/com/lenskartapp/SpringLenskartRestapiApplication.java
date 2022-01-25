@@ -58,7 +58,7 @@ public class SpringLenskartRestapiApplication implements CommandLineRunner {
         Set<Category> categories1 = new HashSet<>(Arrays.asList(category2));
         Lens lens2 = new Lens("Oakley", 0.5);
 
-        Frame frame = new Frame("Pilat Style", "Medium", "gray", ShopBy.MEN, 1200, lens2, brand1,"assets/sunglass/oakley", categories1,5.0);
+        Frame frame = new Frame("Pilat Style", "Medium", "gray", ShopBy.MEN, 1200, lens2,5.0  , brand1,"assets/sunglass/oakley" ,categories1 );
 
 
         frameService.addFrame(frame);

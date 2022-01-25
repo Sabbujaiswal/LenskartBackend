@@ -41,18 +41,30 @@ public class Frame {
     @JoinTable(name = "frame_category", joinColumns = @JoinColumn(name = "frameid"), inverseJoinColumns = @JoinColumn(name = "categoryid"))
     private Set<Category> categories;
 
-
-    public Frame(String name, String frameSize, String color, ShopBy gender, double price, Lens lens, Brand brand, String frameImg, Set<Category> categories,double rating ) {
+    /**
+     *
+     * @param name
+     * @param frameSize
+     * @param color
+     * @param gender
+     * @param price
+     * @param lens
+     * @param rating
+     * @param brand
+     * @param frameImg
+     * @param categories
+     */
+    public Frame(String name, String frameSize, String color, ShopBy gender, double price, Lens lens, double rating, Brand brand, String frameImg, Set<Category> categories) {
         this.name = name;
         this.frameSize = frameSize;
         this.color = color;
         this.gender = gender;
         this.price = price;
         this.lens = lens;
-        this.brand = brand;
-        this.categories = categories;
         this.rating = rating;
-
+        this.brand = brand;
+        this.frameImg = frameImg;
+        this.categories = categories;
     }
 
     @Override
