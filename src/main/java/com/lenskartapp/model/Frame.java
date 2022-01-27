@@ -67,6 +67,7 @@ public class Frame {
         this.categories = categories;
     }
 
+
     @Override
     public String toString() {
         return "Frame{" +
