@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("frame-api")
+@CrossOrigin("http://localhost:4200")
 public class FrameController {
     private Logger logger = LoggerFactory.getLogger(BrandController.class);
 
