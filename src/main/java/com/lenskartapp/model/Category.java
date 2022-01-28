@@ -10,7 +10,6 @@ import java.util.Set;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @Entity
 public class Category {
     @Id
@@ -33,6 +32,10 @@ public class Category {
     public Category(String categoryName, String material) {
         this.categoryName = categoryName;
         this.material = material;
+    }
+
+    public Category() {
+
     }
 
     @Override

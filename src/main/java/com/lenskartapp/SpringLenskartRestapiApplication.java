@@ -53,7 +53,7 @@ public class SpringLenskartRestapiApplication implements CommandLineRunner {
 //        Lens lens1 = new Lens("John Jacobs", 0.75);
 //        Frame frame=new Frame("Float Pop","Medium","Blue",ShopBy.MEN,1350,lens1,5.0,brand2,"assets/reading/g1.jpg",categories);
 //        frameService.addFrame(frame);
-//
+
 //        Brand brand1 = new Brand(Shape.ROUND, Type.AVITORSUNGLASSES, "OAKLEY");
 //        Category category2 = new Category("Sun Glasses", "Fiber");
 //        Set<Category> categories1 = new HashSet<>(Arrays.asList(category2));
@@ -61,7 +61,7 @@ public class SpringLenskartRestapiApplication implements CommandLineRunner {
 //        Frame frame=new Frame("Pop Float","Small","Grey",ShopBy.KIDS,1000,lens2,4.6,brand1,"assets/sunglass/g2.jpg",categories1);
 //
 //
-//        frameService.addFrame(frame);
+//       frameService.addFrame(frame);
 
 //        Brand brand2 = new Brand(Shape.CATEYEGLASSES, Type.ASPHERICALLENS, "Fasttrack");
 //        Category category2 = new Category("Computer Glasses", "Fiber");
@@ -86,7 +86,7 @@ public class SpringLenskartRestapiApplication implements CommandLineRunner {
 //        Lens lens2 = new Lens("hooper", 0.5);
 //        Frame frame= new Frame("Oval Style","Small","Shadow grey",ShopBy.MEN,1800,lens2,4.3,brand1,"assets/sunglass1/g5.jpg",categories1);
 //
-//        frameService.addFrame(frame);
+//    frameService.addFrame(frame);
 //
 //        Brand brand1 = new Brand(Shape.RECTANGLE, Type.ASPHERICALLENS, "Lenskart BLU");
 //        Category category2 = new Category("Normal Glass ", "Ancient Steel");
@@ -135,13 +135,13 @@ public class SpringLenskartRestapiApplication implements CommandLineRunner {
 
         //---------> user part--------------------<
         //  public User(String userName, String password, Integer mobile, String email, String address, Integer zipcode) {
-//        User user=new User("Divya","divya1000","1234577809","divya@email.com","Housing Board Colony",515001);
-//        userService.addUser(user);
+      //  User user=new User("Divya","divya1000","1234577809","divya@email.com","Housing Board Colony",515001);
+        //userService.addUser(user);
 
 //        User user=new User("Mallika","mallika09","9087654322","mallika@email.com","Kphb",515003);
 //        userService.addUser(user);
-//        User user=new User("Thanmayi","thanu09","3456788920","thanmayi@email.com","Madhapur",515004);
-//        userService.addUser(user);
+       // User user=new User("Thanmayi","thanu09","3456788920","thanmayi@email.com","Madhapur",515004);
+     //userService.addUser(user);
 //
 //        User user=new User("Sharmila","sharmi08","2334908765","sharmi@email.com","Kukatpally",515009);
 //        userService.addUser(user);

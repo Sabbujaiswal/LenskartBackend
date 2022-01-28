@@ -11,7 +11,6 @@ import java.util.Set;
 
 @Setter
 @Getter
-@NoArgsConstructor
 @Entity
 public class Brand {
     @Id
@@ -39,6 +38,9 @@ public class Brand {
         this.shape = shape;
         this.type = type;
         this.brandName = brandName;
+    }
+
+    public Brand() {
     }
 
     @Override

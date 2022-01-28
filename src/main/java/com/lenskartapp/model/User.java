@@ -9,7 +9,6 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @Entity
 public class User {
 
@@ -39,5 +38,8 @@ public class User {
         this.email = email;
         this.address = address;
         this.zipcode = zipcode;
+    }
+
+    public User() {
     }
 }

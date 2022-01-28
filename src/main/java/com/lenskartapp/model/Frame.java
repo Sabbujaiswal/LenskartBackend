@@ -9,7 +9,6 @@ import java.util.Set;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @Entity
 public class Frame {
     @Id
@@ -54,6 +53,8 @@ public class Frame {
         this.categories = categories;
     }
 
+    public Frame() {
+    }
 
     @Override
     public String toString() {

@@ -6,7 +6,6 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @Entity
 public class Lens {
     @Id
@@ -27,5 +26,8 @@ public class Lens {
     public Lens(String brand, double lensPower) {
         this.brand = brand;
         this.lensPower = lensPower;
+    }
+
+    public Lens() {
     }
 }
