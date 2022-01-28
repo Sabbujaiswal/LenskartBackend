@@ -146,6 +146,82 @@ public class SpringLenskartRestapiApplication implements CommandLineRunner {
 //        User user=new User("Sharmila","sharmi08","2334908765","sharmi@email.com","Kukatpally",515009);
 //        userService.addUser(user);
 
+//        Brand brand1 = new Brand(Shape.RECTANGLE, Type.TRIVE, "Optic");
+//        Category category2 = new Category("Shades", "Fiber");
+//        Set<Category> categories1 = new HashSet<>(Arrays.asList(category2));
+//        Lens lens2 = new Lens("Optic", 1.5);
+//        Frame frame=new Frame("convex","Medium","Black",ShopBy.UNISEX,1500,lens2,4.8,brand1,"assets/shades/g11.jpg",categories1);
+//
+//
+//        frameService.addFrame(frame);
+
+//        Brand brand1 = new Brand(Shape.SQUARE, Type.BLUERAY, "Ray-Ban");
+//        Category category2 = new Category("Full Rim Aviators", "Fiber");
+//        Set<Category> categories1 = new HashSet<>(Arrays.asList(category2));
+//        Lens lens2 = new Lens("Ray-Ban", 0.0);
+//        Frame frame=new Frame("Rim Shape","Medium","Brown",ShopBy.MEN,3000,lens2,4.9,brand1,"assets/fullrim/g12.jpg",categories1);
+//
+//
+//        frameService.addFrame(frame);
+
+
+//        Brand brand1 = new Brand(Shape.CATEYEGLASSES, Type.PHOTOCHROMIC, "Armani");
+//        Category category2 = new Category("Googles", "Fiber");
+//        Set<Category> categories1 = new HashSet<>(Arrays.asList(category2));
+//        Lens lens2 = new Lens("Armani", 1.5);
+//        Frame frame=new Frame("Round","Medium","Blue",ShopBy.WOMEN,2000,lens2,4.5,brand1,"assets/goggles/g13.jpg",categories1);
+//
+//
+//        frameService.addFrame(frame);
+
+//        Brand brand1 = new Brand(Shape.OVAL, Type.ASPHERICALLENS, "Poloroid");
+//        Category category2 = new Category("Glasses", "Glass");
+//        Set<Category> categories1 = new HashSet<>(Arrays.asList(category2));
+//        Lens lens2 = new Lens("Polaroid", 1.5);
+//        Frame frame=new Frame("Polo","Medium","Black",ShopBy.UNISEX,3500,lens2,5.0,brand1,"assets/glass/g14.jpg",categories1);
+//        frameService.addFrame(frame);
+
+//        Brand brand1 = new Brand(Shape.OVAL, Type.BROWLINE, "Farenheit");
+//        Category category2 = new Category("Sun shades", "Fiber");
+//        Set<Category> categories1 = new HashSet<>(Arrays.asList(category2));
+//        Lens lens2 = new Lens("Farenheit", 1.5);
+//        Frame frame=new Frame("Shades","Medium","Grey",ShopBy.WOMEN,4000,lens2,4.6,brand1,"assets/sunshades/g15.jpg",categories1);
+//        frameService.addFrame(frame);
+//        Brand brand1 = new Brand(Shape.OVAL, Type.AVITORSUNGLASSES, "Fasttrack");
+//        Category category2 = new Category("Reading", "Glass");
+//        Set<Category> categories1 = new HashSet<>(Arrays.asList(category2));
+//        Lens lens2 = new Lens("FastTrack", 1.5);
+//        Frame frame=new Frame("Fasttrack","small","Pink",ShopBy.KIDS,2000,lens2,5.0,brand1,"assets/reading/g16.jpg",categories1);
+//        frameService.addFrame(frame);
+//        Brand brand1 = new Brand(Shape.ROUND, Type.BROWLINE, "Poloroid");
+//        Category category2 = new Category("sunshades", "Fiber");
+//        Set<Category> categories1 = new HashSet<>(Arrays.asList(category2));
+//        Lens lens2 = new Lens("Poloroid", 0.5);
+//        Frame frame=new Frame("Poloroid","small","light blue",ShopBy.KIDS,2500,lens2,4.8,brand1,"assets/sunshades/g17.jpg",categories1);
+//        frameService.addFrame(frame);
+//
+//        Brand brand1 = new Brand(Shape.RECTANGLE, Type.PHOTOCHROMIC, "Oakley");
+//        Category category2 = new Category("Glasses", "glass");
+//        Set<Category> categories1 = new HashSet<>(Arrays.asList(category2));
+//        Lens lens2 = new Lens("Oakley", 0.5);
+//        Frame frame=new Frame("Fully rimmed","medium","light green",ShopBy.WOMEN,2500,lens2,3.8,brand1,"assets/glasses/g18.jpg",categories1);
+//        frameService.addFrame(frame);
+//        Brand brand1 = new Brand(Shape.ROUND, Type.ASPHERICALLENS, "IDEE");
+//        Category category2 = new Category("protection", "glass");
+//        Set<Category> categories1 = new HashSet<>(Arrays.asList(category2));
+//        Lens lens2 = new Lens("IDEE", 0.5);
+//        Frame frame=new Frame("Half rimmed","medium","light grey",ShopBy.MEN,2800,lens2,4.7,brand1,"assets/protection/g19.jpg",categories1);
+//        frameService.addFrame(frame);
+//        Brand brand1 = new Brand(Shape.CATEYEGLASSES, Type.PHOTOCHROMIC, "Vogue");
+//        Category category2 = new Category("Glasses", "glass");
+//        Set<Category> categories1 = new HashSet<>(Arrays.asList(category2));
+//        Lens lens2 = new Lens("Vogue", 0.5);
+//        Frame frame=new Frame("Fully rimmed","medium","light brown",ShopBy.WOMEN,4500,lens2,5.0,brand1,"assets/glasses/g20.jpg",categories1);
+//        frameService.addFrame(frame);
+//
+
+
+
 
 
 

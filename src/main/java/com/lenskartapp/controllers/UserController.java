@@ -32,22 +32,6 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(nuser);
     }
 
-    @PutMapping("/users")
-    ResponseEntity<Void> updateUSer(@RequestBody User user) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("desc", "updating user");
-        userService.updateUser(user);
-        return ResponseEntity.status(HttpStatus.ACCEPTED).headers(headers).build();
-    }
-
-    @DeleteMapping("/users/id/{userid}")
-    public ResponseEntity<String> deleteUser(@PathVariable("userid") int userId) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("desc", "deleting frame");
-       userService.deleteUser(userId);
-        return ResponseEntity.status(HttpStatus.ACCEPTED).headers(headers).body("deleted");
-    }
-
 
     @GetMapping("/users/id/{userId}")
     public ResponseEntity<User> getById(@PathVariable("userId") Integer userId){
