@@ -36,14 +36,14 @@ public class UserServiceImpl implements IUserService{
     @Override
     public User getById(Integer userId) throws UserNotFoundException {
         User user=null;
-        return userRepository.findById(userId).orElseThrow(()-> new UserNotFoundException("User with i=this id not found"));
+        return userRepository.findById(userId).orElseThrow(()-> new UserNotFoundException("User with this id not found"));
     }
 
     @Override
     public User getByEmailandPassword(String email, String password) throws UserNotFoundException {
         User user=userRepository.findByEmailAndPassword( email, password);
         if(user==null){
-            throw  new UserNotFoundException("User not found with this email and password");
+            throw  new UserNotFoundException("User not found with this email and password" + email + " " + password);
         }
         return user;
     }

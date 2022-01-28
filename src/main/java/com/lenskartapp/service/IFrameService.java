@@ -2,7 +2,6 @@ package com.lenskartapp.service;
 
 import com.lenskartapp.exceptions.FrameNotFoundException;
 import com.lenskartapp.model.Frame;
-import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
