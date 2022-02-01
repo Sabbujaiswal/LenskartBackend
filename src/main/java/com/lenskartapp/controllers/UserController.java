@@ -40,6 +40,17 @@ public class UserController {
         User user=userService.getById(userId);
         return ResponseEntity.ok().headers(headers).body(user);
     }
+
+    @GetMapping("/users/all-users")
+    public ResponseEntity<List<User>> getAll(){
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("desc", "Getting all users");
+        headers.add("info", "user details");
+        List<User> users = userService.allUsers();
+        ResponseEntity<List<User>> userResponse = new ResponseEntity(users, headers, HttpStatus.OK);
+        return userResponse;
+    }
+
     @GetMapping("/users/email/{email}/password/{password}")
     public ResponseEntity<User> getByEmailAndPassword(@PathVariable("email") String email,@PathVariable("password") String password){
         HttpHeaders headers = new HttpHeaders();
@@ -54,5 +65,8 @@ public class UserController {
         User user=userService.getByMobileandPassword(mobile,password);
         return ResponseEntity.ok().headers(headers).body(user);
     }
+
+
+
 
 }

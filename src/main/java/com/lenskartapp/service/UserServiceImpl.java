@@ -34,6 +34,11 @@ public class UserServiceImpl implements IUserService{
     }
 
     @Override
+    public List<User> allUsers() {
+        return userRepository.findAll();
+    }
+
+    @Override
     public User getById(Integer userId) throws UserNotFoundException {
         User user=null;
         return userRepository.findById(userId).orElseThrow(()-> new UserNotFoundException("User with this id not found"));

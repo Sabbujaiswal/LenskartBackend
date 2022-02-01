@@ -12,6 +12,7 @@ public interface IUserService {
     void updateUser(User user);
 
     void deleteUser(int userId) throws UserNotFoundException;
+    List<User> allUsers();
 
     User getById(Integer userId) throws UserNotFoundException;
 
