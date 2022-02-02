@@ -8,4 +8,5 @@ import javax.persistence.criteria.CriteriaBuilder;
 
 @Repository
 public interface IBrandRepository extends JpaRepository<Brand, Integer> {
+    Brand findByBrandName(String brandName);
 }

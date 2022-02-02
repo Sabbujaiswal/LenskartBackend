@@ -53,6 +53,12 @@ public class BrandServiceImpl implements IBrandService {
     public Brand getById(int brandId) {
         return brandRepository.findById(brandId).orElseThrow(() -> new BrandNotFoundException("This brand not found"));
     }
+
+    @Override
+    public Brand getByBrandName(String brandName) {
+        return brandRepository.findByBrandName(brandName);
+    }
+
     /**
      *
      * @return list of brands

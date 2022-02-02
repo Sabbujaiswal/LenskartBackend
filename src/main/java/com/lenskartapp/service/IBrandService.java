@@ -17,6 +17,7 @@ public interface IBrandService {
 
     Brand getById(int brandId);
 
+    Brand getByBrandName(String brandName);
 
     List<Brand> getAll();
 

@@ -47,6 +47,8 @@ public class SpringLenskartRestapiApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+        brandService.getAll().forEach(System.out::println);
+
 //        Brand brand2 = new Brand(Shape.ROUND, Type.BLUERAY, "ray-ban");
 //        Category category3 = new Category("Reading", "Plastic");
 //        Set<Category> categories = new HashSet<>(Arrays.asList(category3));
@@ -138,8 +140,8 @@ public class SpringLenskartRestapiApplication implements CommandLineRunner {
       //  User user=new User("Divya","divya1000","1234577809","divya@email.com","Housing Board Colony",515001);
         //userService.addUser(user);
 
-//        User user=new User("Mallika","mallika09","9087654322","mallika@email.com","Kphb",515003);
-//        userService.addUser(user);
+        User user=new User("Nayeem","nayeem1000","9087651232","nayeem@email.com","Vijayawada",515303);
+        //userService.addUser(user);
        // User user=new User("Thanmayi","thanu09","3456788920","thanmayi@email.com","Madhapur",515004);
      //userService.addUser(user);
 //

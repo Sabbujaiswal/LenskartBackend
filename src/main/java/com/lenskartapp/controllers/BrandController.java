@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://localhost:4200")
 @RequestMapping("brand-api")
 public class BrandController {
     private Logger logger = LoggerFactory.getLogger(BrandController.class);
@@ -53,9 +54,9 @@ public class BrandController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).headers(headers).body("deleted");
     }
 
-    @GetMapping("/brands")
-    public ResponseEntity<List<Brand>> getAll(@PathVariable("brandid") int brandId) {
-        logger.debug("inside id");
+    @GetMapping("/totalbrands")
+    public ResponseEntity<List<Brand>> getAll() {
+        logger.debug("inside all");
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting All brands");
         List<Brand> brands = brandService.getAll();
@@ -69,6 +70,15 @@ public class BrandController {
         HttpHeaders headers = new HttpHeaders();
         headers.add("desc", "Getting Brand by id");
         Brand nbrand = brandService.getById(brandId);
+        logger.info("got one " + nbrand);
+        return ResponseEntity.ok().headers(headers).body(nbrand);
+    }
+    @GetMapping("/brands/brand/{brand}")
+    public ResponseEntity<Brand> getByBrandName(@PathVariable("brand") String brandName) {
+        logger.debug("inside id");
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("desc", "Getting Brand by name");
+        Brand nbrand = brandService.getByBrandName(brandName);
         logger.info("got one " + nbrand);
         return ResponseEntity.ok().headers(headers).body(nbrand);
     }
