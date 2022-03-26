@@ -61,9 +61,9 @@ public class SpringLenskartRestapiApplication implements CommandLineRunner {
 //        Set<Category> categories1 = new HashSet<>(Arrays.asList(category2));
 //        Lens lens2 = new Lens("Oakley", 0.5);
 //        Frame frame=new Frame("Pop Float","Small","Grey",ShopBy.KIDS,1000,lens2,4.6,brand1,"assets/sunglass/g2.jpg",categories1);
+//        frameService.addFrame(frame);
 //
 //
-//       frameService.addFrame(frame);
 
 //        Brand brand2 = new Brand(Shape.CATEYEGLASSES, Type.ASPHERICALLENS, "Fasttrack");
 //        Category category2 = new Category("Computer Glasses", "Fiber");
@@ -117,7 +117,6 @@ public class SpringLenskartRestapiApplication implements CommandLineRunner {
 //        Category category2 = new Category("reading", "Fiber");
 //        Set<Category> categories1 = new HashSet<>(Arrays.asList(category2));
 //        Lens lens2 = new Lens("Vincent Chase", 0.0);
-//
 //        Frame frame = new Frame("Convex  Style", "small", "pink", ShopBy.KIDS, 1200, lens2,5.0  , brand1,"assets/reading2/g9.jpg" ,categories1 );
 //        frameService.addFrame(frame);
 
@@ -126,26 +125,23 @@ public class SpringLenskartRestapiApplication implements CommandLineRunner {
 //        Category category2 = new Category("Reading", "Fiber");
 //        Set<Category> categories1 = new HashSet<>(Arrays.asList(category2));
 //        Lens lens2 = new Lens("Poloroid", 0.5);
-//
 //        Frame frame = new Frame("Fully Rimmed Style", "Medium", "light pink", ShopBy.WOMEN, 2200, lens2,4.6  , brand1,"assets/reading3glass/g10.jpg" ,categories1 );
-//
-//
 //        frameService.addFrame(frame);
 
 
 
 
         //---------> user part--------------------<
-        //  public User(String userName, String password, Integer mobile, String email, String address, Integer zipcode) {
-      //  User user=new User("Divya","divya1000","1234577809","divya@email.com","Housing Board Colony",515001);
-        //userService.addUser(user);
+//          public User(String userName, String password, Integer mobile, String email, String address, Integer zipcode) {
+//        User user=new User("Divya","divya1000","1234577809","divya@email.com","Housing Board Colony",515001);
+//        userService.addUser(user);
 
-        User user=new User("Nayeem","nayeem1000","9087651232","nayeem@email.com","Vijayawada",515303);
-        //userService.addUser(user);
-       // User user=new User("Thanmayi","thanu09","3456788920","thanmayi@email.com","Madhapur",515004);
-     //userService.addUser(user);
+//        User user=new User("Nayeem","nayeem1000","9087651232","nayeem@email.com","Vijayawada",515303);
+//        userService.addUser(user);
+//        User user=new User("Thanmayi","thanu09","3456788920","thanmayi@email.com","Madhapur",515004);
+//     userService.addUser(user);
 //
-//        User user=new User("Sharmila","sharmi08","2334908765","sharmi@email.com","Kukatpally",515009);
+//        User user=new User("Jack","Jack@5","9151269074","jack@email.com","Bhadohi",221313);
 //        userService.addUser(user);
 
 //        Brand brand1 = new Brand(Shape.RECTANGLE, Type.TRIVE, "Optic");
@@ -153,8 +149,6 @@ public class SpringLenskartRestapiApplication implements CommandLineRunner {
 //        Set<Category> categories1 = new HashSet<>(Arrays.asList(category2));
 //        Lens lens2 = new Lens("Optic", 1.5);
 //        Frame frame=new Frame("convex","Medium","Black",ShopBy.UNISEX,1500,lens2,4.8,brand1,"assets/shades/g11.jpg",categories1);
-//
-//
 //        frameService.addFrame(frame);
 
 //        Brand brand1 = new Brand(Shape.SQUARE, Type.BLUERAY, "Ray-Ban");
@@ -162,8 +156,6 @@ public class SpringLenskartRestapiApplication implements CommandLineRunner {
 //        Set<Category> categories1 = new HashSet<>(Arrays.asList(category2));
 //        Lens lens2 = new Lens("Ray-Ban", 0.0);
 //        Frame frame=new Frame("Rim Shape","Medium","Brown",ShopBy.MEN,3000,lens2,4.9,brand1,"assets/fullrim/g12.jpg",categories1);
-//
-//
 //        frameService.addFrame(frame);
 
 
@@ -172,8 +164,6 @@ public class SpringLenskartRestapiApplication implements CommandLineRunner {
 //        Set<Category> categories1 = new HashSet<>(Arrays.asList(category2));
 //        Lens lens2 = new Lens("Armani", 1.5);
 //        Frame frame=new Frame("Round","Medium","Blue",ShopBy.WOMEN,2000,lens2,4.5,brand1,"assets/goggles/g13.jpg",categories1);
-//
-//
 //        frameService.addFrame(frame);
 
 //        Brand brand1 = new Brand(Shape.OVAL, Type.ASPHERICALLENS, "Poloroid");
@@ -203,7 +193,7 @@ public class SpringLenskartRestapiApplication implements CommandLineRunner {
 //        Lens lens2 = new Lens("Poloroid", 0.5);
 //        Frame frame=new Frame("Poloroid","small","light blue",ShopBy.KIDS,2500,lens2,4.8,brand1,"assets/sunshades/g17.jpg",categories1);
 //        frameService.addFrame(frame);
-//
+
 //        Brand brand1 = new Brand(Shape.RECTANGLE, Type.PHOTOCHROMIC, "Oakley");
 //        Category category2 = new Category("Glasses", "glass");
 //        Set<Category> categories1 = new HashSet<>(Arrays.asList(category2));
@@ -224,14 +214,6 @@ public class SpringLenskartRestapiApplication implements CommandLineRunner {
 //        Lens lens2 = new Lens("Vogue", 0.5);
 //        Frame frame=new Frame("Fully rimmed","medium","light brown",ShopBy.WOMEN,4500,lens2,5.0,brand1,"assets/glasses/g20.jpg",categories1);
 //        frameService.addFrame(frame);
-//
-
-
-
-
-
-
-
 
 
 
